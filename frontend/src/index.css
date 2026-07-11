@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0a0a12;
+    color: #e0e0f0;
+    min-height: 100vh;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #141420;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #40414f;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #565869;
+}
+
+/* KaTeX dentro del dark theme */
+.katex {
+    color: #e0e0f0 !important;
+}
+
+.katex .mord,
+.katex .mbin,
+.katex .mrel,
+.katex .mopen,
+.katex .mclose,
+.katex .mpunct,
+.katex .mop {
+    color: #e0e0f0 !important;
+}
+
+/* Efecto glassmorphism para cards */
+.glass-card {
+    background: rgba(30, 30, 46, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(108, 99, 255, 0.15);
+}
+
+/* Animación de carga */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(108, 99, 255, 0.6);
+    }
+}
+
+.loading-glow {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Input focus ring */
+input:focus {
+    outline: none;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background: #2d2d3a;
+    color: #e0e0f0;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
